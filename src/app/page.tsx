@@ -1,342 +1,252 @@
 import Link from "next/link";
 
 import {
-  Film,
-  Plus,
+  ArrowRight,
+  CheckCircle2,
+  Play,
+  ShieldCheck,
   Sparkles,
 } from "lucide-react";
 
-import { prisma } from "@/database/prisma";
+import {
+  HeroProductPreview,
+} from "@/components/marketing/HeroProductPreview";
 
-import { AppShell } from "@/components/layout/AppShell";
-import { ProjectCard } from "@/components/projects/ProjectCard";
+import {
+  LandingSections,
+} from "@/components/marketing/LandingSections";
 
-export const dynamic = "force-dynamic";
+import {
+  MarketingFooter,
+} from "@/components/marketing/MarketingFooter";
 
-export default async function ProjectsPage() {
-  const projects = await prisma.project.findMany({
-    orderBy: {
-      updatedAt: "desc",
-    },
+import {
+  MarketingHeader,
+} from "@/components/marketing/MarketingHeader";
 
-    include: {
-      _count: {
-        select: {
-          questions: true,
-        },
-      },
-    },
-  });
-
-  const totalQuestions = projects.reduce(
-    (total, project) =>
-      total + project._count.questions,
-    0
-  );
-
+export default function HomePage() {
   return (
-    <AppShell>
-      <main className="min-h-screen bg-[#080d16] text-white">
-        <div className="mx-auto max-w-7xl px-6 py-10 lg:px-10">
+    <div
+      className="
+        min-h-screen
+        bg-[#fffdf8]
+        text-nexo-text
+      "
+    >
+      <MarketingHeader />
 
-          {/* CABEÇALHO */}
+      <main>
+        {/* HERO */}
 
-          <header
+        <section
+          className="
+            overflow-hidden
+            bg-[#fffdf8]
+            py-16
+            lg:py-24
+          "
+        >
+          <div
             className="
-              flex
-              flex-col
-              gap-6
-              md:flex-row
-              md:items-center
-              md:justify-between
+              mx-auto
+              grid
+              max-w-7xl
+              items-center
+              gap-14
+              px-5
+              md:px-8
+              lg:grid-cols-[0.8fr_1.2fr]
             "
           >
             <div>
               <div
                 className="
-                  mb-3
-                  flex
+                  inline-flex
                   items-center
                   gap-2
-                  text-sm
-                  font-black
-                  uppercase
-                  tracking-[0.18em]
-                  text-violet-400
+                  rounded-full
+                  bg-[#f3efdf]
+                  px-4
+                  py-2
+                  text-xs
+                  font-extrabold
+                  text-nexo-green
                 "
               >
-                <Sparkles size={17} />
+                <Sparkles
+                  size={14}
+                />
 
-                QuizVideo AI
+                Simples, rápido e profissional
               </div>
 
               <h1
                 className="
-                  text-4xl
-                  font-black
-                  tracking-tight
-                  md:text-5xl
+                  mt-8
+                  max-w-xl
+                  text-5xl
+                  font-extrabold
+                  leading-[0.98]
+                  tracking-[-0.055em]
+                  text-nexo-green
+                  sm:text-6xl
+                  lg:text-7xl
                 "
               >
-                Meus projetos
+                Crie vídeos de quiz em{" "}
+                <span
+                  className="
+                    decoration-nexo-yellow
+                    decoration-[7px]
+                    underline
+                    underline-offset-4
+                  "
+                >
+                  minutos.
+                </span>
               </h1>
 
               <p
                 className="
-                  mt-3
-                  max-w-2xl
-                  text-zinc-400
+                  mt-7
+                  max-w-xl
+                  text-lg
+                  leading-8
+                  text-nexo-text-secondary
                 "
               >
-                Crie, organize e gere seus vídeos
-                de quiz automaticamente.
-              </p>
-            </div>
-
-            <Link
-              href="/projetos/novo"
-              className="
-                inline-flex
-                items-center
-                justify-center
-                gap-2
-                rounded-xl
-                bg-violet-600
-                px-5
-                py-3
-                font-bold
-                text-white
-                shadow-lg
-                shadow-violet-950/30
-                transition
-                hover:bg-violet-500
-              "
-            >
-              <Plus size={20} />
-
-              Novo projeto
-            </Link>
-          </header>
-
-          {/* ESTATÍSTICAS */}
-
-          <section
-            className="
-              mt-10
-              grid
-              gap-4
-              sm:grid-cols-2
-              xl:grid-cols-3
-            "
-          >
-            {/* PROJETOS */}
-
-            <div
-              className="
-                rounded-2xl
-                border
-                border-white/10
-                bg-white/[0.03]
-                p-5
-              "
-            >
-              <p className="text-sm text-zinc-500">
-                Projetos
-              </p>
-
-              <strong
-                className="
-                  mt-2
-                  block
-                  text-3xl
-                  font-black
-                "
-              >
-                {projects.length}
-              </strong>
-            </div>
-
-            {/* PERGUNTAS */}
-
-            <div
-              className="
-                rounded-2xl
-                border
-                border-white/10
-                bg-white/[0.03]
-                p-5
-              "
-            >
-              <p className="text-sm text-zinc-500">
-                Perguntas
-              </p>
-
-              <strong
-                className="
-                  mt-2
-                  block
-                  text-3xl
-                  font-black
-                "
-              >
-                {totalQuestions}
-              </strong>
-            </div>
-
-            {/* MOTOR */}
-
-            <div
-              className="
-                rounded-2xl
-                border
-                border-white/10
-                bg-white/[0.03]
-                p-5
-              "
-            >
-              <p className="text-sm text-zinc-500">
-                Motor de vídeo
+                Transforme perguntas e respostas em vídeos profissionais para YouTube, Shorts, TikTok e Reels — sem precisar editar manualmente.
               </p>
 
               <div
                 className="
-                  mt-2
+                  mt-8
                   flex
-                  items-center
-                  gap-2
+                  flex-wrap
+                  gap-3
                 "
               >
-                <div
+                <Link
+                  href="/demo"
                   className="
-                    h-2.5
-                    w-2.5
-                    rounded-full
-                    bg-emerald-400
-                  "
-                />
-
-                <strong
-                  className="
-                    text-lg
-                    font-black
-                    text-emerald-400
+                    inline-flex
+                    min-h-14
+                    items-center
+                    justify-center
+                    gap-2
+                    rounded-xl
+                    bg-nexo-green
+                    px-6
+                    text-sm
+                    font-extrabold
+                    text-white
+                    transition
+                    hover:-translate-y-0.5
+                    hover:bg-nexo-green-hover
                   "
                 >
-                  Remotion ativo
-                </strong>
+                  Testar grátis
+
+                  <ArrowRight
+                    size={17}
+                  />
+                </Link>
+
+                <a
+                  href="#como-funciona"
+                  className="
+                    inline-flex
+                    min-h-14
+                    items-center
+                    justify-center
+                    gap-2
+                    rounded-xl
+                    border
+                    border-[#d9d2be]
+                    bg-white
+                    px-6
+                    text-sm
+                    font-extrabold
+                    text-nexo-green
+                    transition-colors
+                    hover:bg-[#f7f2e4]
+                  "
+                >
+                  <Play
+                    size={16}
+                  />
+
+                  Ver como funciona
+                </a>
               </div>
-            </div>
-          </section>
 
-          {/* LISTA DE PROJETOS */}
-
-          {projects.length > 0 ? (
-            <section
-              className="
-                mt-8
-                grid
-                gap-5
-                md:grid-cols-2
-                xl:grid-cols-3
-              "
-            >
-              {projects.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  id={project.id}
-                  title={project.title}
-                  questionCount={
-                    project._count.questions
-                  }
-                  format={project.format}
-                  width={project.width}
-                  height={project.height}
-                  fps={project.fps}
-                />
-              ))}
-            </section>
-          ) : (
-            /* ESTADO VAZIO */
-
-            <section
-              className="
-                mt-10
-                flex
-                min-h-[380px]
-                flex-col
-                items-center
-                justify-center
-                rounded-3xl
-                border
-                border-dashed
-                border-white/10
-                bg-white/[0.02]
-                px-6
-                text-center
-              "
-            >
               <div
                 className="
+                  mt-10
                   flex
-                  h-16
-                  w-16
-                  items-center
-                  justify-center
-                  rounded-2xl
-                  bg-violet-600/15
-                  text-violet-400
+                  flex-wrap
+                  gap-x-6
+                  gap-y-3
+                  text-xs
+                  font-semibold
+                  text-[#617064]
                 "
               >
-                <Film size={30} />
+                <span
+                  className="
+                    inline-flex
+                    items-center
+                    gap-2
+                  "
+                >
+                  <ShieldCheck
+                    size={15}
+                    className="text-nexo-green"
+                  />
+
+                  Sem cartão de crédito
+                </span>
+
+                <span
+                  className="
+                    inline-flex
+                    items-center
+                    gap-2
+                  "
+                >
+                  <CheckCircle2
+                    size={15}
+                    className="text-nexo-green"
+                  />
+
+                  Até 5 perguntas no teste
+                </span>
+
+                <span
+                  className="
+                    inline-flex
+                    items-center
+                    gap-2
+                  "
+                >
+                  <CheckCircle2
+                    size={15}
+                    className="text-nexo-green"
+                  />
+
+                  Preview antes do cadastro
+                </span>
               </div>
+            </div>
 
-              <h2
-                className="
-                  mt-5
-                  text-xl
-                  font-black
-                "
-              >
-                Nenhum projeto ainda
-              </h2>
+            <HeroProductPreview />
+          </div>
+        </section>
 
-              <p
-                className="
-                  mt-2
-                  max-w-md
-                  text-zinc-500
-                "
-              >
-                Crie seu primeiro projeto para
-                começar a produzir vídeos de quiz
-                automaticamente.
-              </p>
-
-              <Link
-                href="/projetos/novo"
-                className="
-                  mt-6
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-xl
-                  bg-violet-600
-                  px-5
-                  py-3
-                  font-bold
-                  text-white
-                  transition
-                  hover:bg-violet-500
-                "
-              >
-                <Plus size={18} />
-
-                Criar primeiro projeto
-              </Link>
-            </section>
-          )}
-        </div>
+        <LandingSections />
       </main>
-    </AppShell>
+
+      <MarketingFooter />
+    </div>
   );
 }
