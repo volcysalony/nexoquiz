@@ -10,143 +10,83 @@ import {
   Music,
   Plus,
   Settings,
-  Sparkles,
   WalletCards,
 } from "lucide-react";
 
+import {
+  NexoQuizLogo,
+} from "@/components/brand/NexoQuizLogo";
+
 type NavigationItem = {
-  label:
-    string;
-
-  href:
-    string;
-
-  icon:
-    typeof Gauge;
+  label: string;
+  href: string;
+  icon: typeof Gauge;
 };
 
-const primaryNavigation: NavigationItem[] =
-  [
-    {
-      label:
-        "Início",
+const primaryNavigation: NavigationItem[] = [
+  {
+    label: "Início",
+    href: "/",
+    icon: Gauge,
+  },
+  {
+    label: "Projetos",
+    href: "/projetos",
+    icon: FolderKanban,
+  },
+  {
+    label: "Modelos",
+    href: "/modelos",
+    icon: Layers3,
+  },
+];
 
-      href:
-        "/",
+const libraryNavigation: NavigationItem[] = [
+  {
+    label: "Imagens",
+    href: "/biblioteca/imagens",
+    icon: Image,
+  },
+  {
+    label: "Áudios",
+    href: "/biblioteca/audios",
+    icon: AudioLines,
+  },
+  {
+    label: "Músicas",
+    href: "/biblioteca/musicas",
+    icon: Music,
+  },
+];
 
-      icon:
-        Gauge,
-    },
-
-    {
-      label:
-        "Projetos",
-
-      href:
-        "/projetos",
-
-      icon:
-        FolderKanban,
-    },
-
-    {
-      label:
-        "Modelos",
-
-      href:
-        "/modelos",
-
-      icon:
-        Layers3,
-    },
-  ];
-
-const libraryNavigation: NavigationItem[] =
-  [
-    {
-      label:
-        "Imagens",
-
-      href:
-        "/biblioteca/imagens",
-
-      icon:
-        Image,
-    },
-
-    {
-      label:
-        "Áudios",
-
-      href:
-        "/biblioteca/audios",
-
-      icon:
-        AudioLines,
-    },
-
-    {
-      label:
-        "Músicas",
-
-      href:
-        "/biblioteca/musicas",
-
-      icon:
-        Music,
-    },
-  ];
-
-const accountNavigation: NavigationItem[] =
-  [
-    {
-      label:
-        "Perfil",
-
-      href:
-        "/perfil",
-
-      icon:
-        CircleUserRound,
-    },
-
-    {
-      label:
-        "Plano e uso",
-
-      href:
-        "/plano-e-uso",
-
-      icon:
-        WalletCards,
-    },
-
-    {
-      label:
-        "Configurações",
-
-      href:
-        "/configuracoes",
-
-      icon:
-        Settings,
-    },
-  ];
+const accountNavigation: NavigationItem[] = [
+  {
+    label: "Perfil",
+    href: "/perfil",
+    icon: CircleUserRound,
+  },
+  {
+    label: "Plano e uso",
+    href: "/plano-e-uso",
+    icon: WalletCards,
+  },
+  {
+    label: "Configurações",
+    href: "/configuracoes",
+    icon: Settings,
+  },
+];
 
 function SidebarLink({
   item,
 }: {
-  item:
-    NavigationItem;
+  item: NavigationItem;
 }) {
-  const Icon =
-    item.icon;
+  const Icon = item.icon;
 
   return (
     <Link
-      href={
-        item.href
-      }
+      href={item.href}
       className="
         group
         flex
@@ -162,12 +102,12 @@ function SidebarLink({
         transition-colors
         duration-150
         hover:bg-[#ede5cf]
-        hover:text-[var(--nexo-green)]
+        hover:text-nexo-green
         focus-visible:outline-none
         focus-visible:ring-2
-        focus-visible:ring-[var(--nexo-green)]
+        focus-visible:ring-nexo-green
         focus-visible:ring-offset-2
-        focus-visible:ring-offset-[var(--nexo-surface)]
+        focus-visible:ring-offset-nexo-surface
       "
     >
       <Icon
@@ -177,7 +117,7 @@ function SidebarLink({
           shrink-0
           text-[#788178]
           transition-colors
-          group-hover:text-[var(--nexo-green)]
+          group-hover:text-nexo-green
         "
       />
 
@@ -197,11 +137,11 @@ export function AppSidebar() {
         left-0
         z-40
         hidden
-        w-[252px]
+        w-63
         flex-col
         border-r
-        border-[var(--nexo-border)]
-        bg-[var(--nexo-surface)]
+        border-nexo-border
+        bg-nexo-surface
         lg:flex
       "
     >
@@ -210,8 +150,8 @@ export function AppSidebar() {
       <div
         className="
           px-5
-          pb-5
           pt-6
+          pb-5
         "
       >
         <Link
@@ -219,57 +159,18 @@ export function AppSidebar() {
           aria-label="NexoQuiz — Início"
           className="
             inline-flex
-            items-center
-            gap-3
             rounded-xl
             focus-visible:outline-none
             focus-visible:ring-2
-            focus-visible:ring-[var(--nexo-green)]
+            focus-visible:ring-nexo-green
+            focus-visible:ring-offset-2
+            focus-visible:ring-offset-nexo-surface
           "
         >
-          <div
-            aria-hidden="true"
-            className="
-              relative
-              flex
-              h-10
-              w-10
-              items-center
-              justify-center
-              overflow-hidden
-              rounded-[13px]
-              bg-[var(--nexo-green)]
-              text-[var(--nexo-yellow)]
-            "
-          >
-            <Sparkles
-              size={19}
-              strokeWidth={2.4}
-            />
-
-            <span
-              className="
-                absolute
-                -bottom-2
-                -right-2
-                h-5
-                w-5
-                rounded-full
-                bg-[var(--nexo-yellow)]
-              "
-            />
-          </div>
-
-          <div
-            className="
-              text-[21px]
-              font-extrabold
-              tracking-[-0.035em]
-              text-[var(--nexo-green)]
-            "
-          >
-            NexoQuiz
-          </div>
+          <NexoQuizLogo
+            priority
+            symbolSize={42}
+          />
         </Link>
 
         <Link
@@ -283,7 +184,7 @@ export function AppSidebar() {
             justify-center
             gap-2
             rounded-[14px]
-            bg-[var(--nexo-green)]
+            bg-nexo-green
             px-4
             py-3
             text-sm
@@ -291,11 +192,12 @@ export function AppSidebar() {
             text-white
             transition
             duration-150
-            hover:bg-[var(--nexo-green-hover)]
+            hover:bg-nexo-green-hover
             focus-visible:outline-none
             focus-visible:ring-2
-            focus-visible:ring-[var(--nexo-green)]
+            focus-visible:ring-nexo-green
             focus-visible:ring-offset-2
+            focus-visible:ring-offset-nexo-surface
           "
         >
           <Plus
@@ -319,32 +221,18 @@ export function AppSidebar() {
           pb-5
         "
       >
-        <div
-          className="
-            space-y-1
-          "
-        >
+        <div className="space-y-1">
           {primaryNavigation.map(
-            (
-              item
-            ) => (
+            (item) => (
               <SidebarLink
-                key={
-                  item.href
-                }
-                item={
-                  item
-                }
+                key={item.href}
+                item={item}
               />
             )
           )}
         </div>
 
-        <div
-          className="
-            mt-7
-          "
-        >
+        <div className="mt-7">
           <p
             className="
               px-3
@@ -365,16 +253,10 @@ export function AppSidebar() {
             "
           >
             {libraryNavigation.map(
-              (
-                item
-              ) => (
+              (item) => (
                 <SidebarLink
-                  key={
-                    item.href
-                  }
-                  item={
-                    item
-                  }
+                  key={item.href}
+                  item={item}
                 />
               )
             )}
@@ -387,27 +269,17 @@ export function AppSidebar() {
       <div
         className="
           border-t
-          border-[var(--nexo-border)]
+          border-nexo-border
           px-3
           py-4
         "
       >
-        <div
-          className="
-            space-y-1
-          "
-        >
+        <div className="space-y-1">
           {accountNavigation.map(
-            (
-              item
-            ) => (
+            (item) => (
               <SidebarLink
-                key={
-                  item.href
-                }
-                item={
-                  item
-                }
+                key={item.href}
+                item={item}
               />
             )
           )}
@@ -417,7 +289,7 @@ export function AppSidebar() {
           className="
             mx-2
             mt-4
-            rounded-[16px]
+            rounded-2xl
             border
             border-[#dfd6bb]
             bg-[#f4ecd5]
@@ -428,7 +300,7 @@ export function AppSidebar() {
             className="
               text-xs
               font-bold
-              text-[var(--nexo-green)]
+              text-nexo-green
             "
           >
             NexoQuiz

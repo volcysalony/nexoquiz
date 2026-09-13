@@ -38,80 +38,25 @@
 
   --color-nexo-bg: var(--nexo-bg);
   --color-nexo-surface: var(--nexo-surface);
+  --color-nexo-surface-strong: var(--nexo-surface-strong);
+
   --color-nexo-green: var(--nexo-green);
+  --color-nexo-green-hover: var(--nexo-green-hover);
+  --color-nexo-green-soft: var(--nexo-green-soft);
+
   --color-nexo-yellow: var(--nexo-yellow);
+  --color-nexo-yellow-hover: var(--nexo-yellow-hover);
+  --color-nexo-yellow-soft: var(--nexo-yellow-soft);
+
+  --color-nexo-text: var(--nexo-text);
+  --color-nexo-text-secondary: var(--nexo-text-secondary);
+  --color-nexo-text-muted: var(--nexo-text-muted);
+
+  --color-nexo-border: var(--nexo-border);
+  --color-nexo-border-strong: var(--nexo-border-strong);
+
+  --color-nexo-danger: var(--nexo-danger);
+  --color-nexo-success: var(--nexo-success);
 
   --font-sans: var(--font-nexo-sans);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  background: var(--nexo-bg);
-}
-
-body {
-  min-height: 100vh;
-
-  margin: 0;
-
-  background:
-    radial-gradient(
-      circle at 90% 0%,
-      rgba(245, 201, 40, 0.08),
-      transparent 26rem
-    ),
-    var(--nexo-bg);
-
-  color: var(--nexo-text);
-
-  font-family:
-    var(--font-nexo-sans),
-    Arial,
-    Helvetica,
-    sans-serif;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-::selection {
-  background: var(--nexo-green);
-  color: #ffffff;
-}
-
-:focus-visible {
-  outline: 3px solid rgba(6, 78, 26, 0.28);
-  outline-offset: 3px;
-}
-
-.nexo-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color:
-    rgba(6, 78, 26, 0.28)
-    transparent;
-}
-
-.nexo-scrollbar::-webkit-scrollbar {
-  width: 8px;
-}
-
-.nexo-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.nexo-scrollbar::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: rgba(6, 78, 26, 0.2);
 }
