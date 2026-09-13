@@ -2,300 +2,450 @@ import Link from "next/link";
 
 import {
   AudioLines,
+  CircleUserRound,
   FolderKanban,
   Gauge,
   Image,
-  Library,
+  Layers3,
   Music,
   Plus,
   Settings,
   Sparkles,
-  Video,
-  WandSparkles,
+  WalletCards,
 } from "lucide-react";
 
-const navigation = [
-  {
-    label: "Dashboard",
-    href: "/",
-    icon: Gauge,
-  },
-  {
-    label: "Projetos",
-    href: "/projetos",
-    icon: FolderKanban,
-  },
-  {
-    label: "Perguntas",
-    href: "/perguntas",
-    icon: Sparkles,
-  },
-  {
-    label: "Templates",
-    href: "/templates",
-    icon: WandSparkles,
-  },
-];
+type NavigationItem = {
+  label:
+    string;
+
+  href:
+    string;
+
+  icon:
+    typeof Gauge;
+};
+
+const primaryNavigation: NavigationItem[] =
+  [
+    {
+      label:
+        "Início",
+
+      href:
+        "/",
+
+      icon:
+        Gauge,
+    },
+
+    {
+      label:
+        "Projetos",
+
+      href:
+        "/projetos",
+
+      icon:
+        FolderKanban,
+    },
+
+    {
+      label:
+        "Modelos",
+
+      href:
+        "/modelos",
+
+      icon:
+        Layers3,
+    },
+  ];
+
+const libraryNavigation: NavigationItem[] =
+  [
+    {
+      label:
+        "Imagens",
+
+      href:
+        "/biblioteca/imagens",
+
+      icon:
+        Image,
+    },
+
+    {
+      label:
+        "Áudios",
+
+      href:
+        "/biblioteca/audios",
+
+      icon:
+        AudioLines,
+    },
+
+    {
+      label:
+        "Músicas",
+
+      href:
+        "/biblioteca/musicas",
+
+      icon:
+        Music,
+    },
+  ];
+
+const accountNavigation: NavigationItem[] =
+  [
+    {
+      label:
+        "Perfil",
+
+      href:
+        "/perfil",
+
+      icon:
+        CircleUserRound,
+    },
+
+    {
+      label:
+        "Plano e uso",
+
+      href:
+        "/plano-e-uso",
+
+      icon:
+        WalletCards,
+    },
+
+    {
+      label:
+        "Configurações",
+
+      href:
+        "/configuracoes",
+
+      icon:
+        Settings,
+    },
+  ];
+
+function SidebarLink({
+  item,
+}: {
+  item:
+    NavigationItem;
+}) {
+  const Icon =
+    item.icon;
+
+  return (
+    <Link
+      href={
+        item.href
+      }
+      className="
+        group
+        flex
+        min-h-11
+        items-center
+        gap-3
+        rounded-xl
+        px-3
+        py-2.5
+        text-[14px]
+        font-semibold
+        text-[#5c665c]
+        transition-colors
+        duration-150
+        hover:bg-[#ede5cf]
+        hover:text-[var(--nexo-green)]
+        focus-visible:outline-none
+        focus-visible:ring-2
+        focus-visible:ring-[var(--nexo-green)]
+        focus-visible:ring-offset-2
+        focus-visible:ring-offset-[var(--nexo-surface)]
+      "
+    >
+      <Icon
+        size={18}
+        strokeWidth={1.9}
+        className="
+          shrink-0
+          text-[#788178]
+          transition-colors
+          group-hover:text-[var(--nexo-green)]
+        "
+      />
+
+      <span>
+        {item.label}
+      </span>
+    </Link>
+  );
+}
 
 export function AppSidebar() {
   return (
     <aside
       className="
         fixed
+        inset-y-0
         left-0
-        top-0
         z-40
         hidden
-        h-screen
-        w-[230px]
+        w-[252px]
         flex-col
         border-r
-        border-white/10
-        bg-[#0b111c]
+        border-[var(--nexo-border)]
+        bg-[var(--nexo-surface)]
         lg:flex
       "
     >
-      {/* LOGO */}
+      {/* BRAND */}
 
-      <div className="px-5 py-6">
+      <div
+        className="
+          px-5
+          pb-5
+          pt-6
+        "
+      >
         <Link
-          href="/projetos"
-          className="flex items-center gap-3"
+          href="/"
+          aria-label="NexoQuiz — Início"
+          className="
+            inline-flex
+            items-center
+            gap-3
+            rounded-xl
+            focus-visible:outline-none
+            focus-visible:ring-2
+            focus-visible:ring-[var(--nexo-green)]
+          "
         >
           <div
+            aria-hidden="true"
             className="
+              relative
               flex
               h-10
               w-10
               items-center
               justify-center
-              rounded-xl
-              bg-violet-600
-              text-white
+              overflow-hidden
+              rounded-[13px]
+              bg-[var(--nexo-green)]
+              text-[var(--nexo-yellow)]
             "
           >
-            <Video size={21} />
+            <Sparkles
+              size={19}
+              strokeWidth={2.4}
+            />
+
+            <span
+              className="
+                absolute
+                -bottom-2
+                -right-2
+                h-5
+                w-5
+                rounded-full
+                bg-[var(--nexo-yellow)]
+              "
+            />
           </div>
 
-          <div className="text-lg font-black text-white">
-            QuizVideo{" "}
-            <span className="text-violet-400">
-              AI
-            </span>
+          <div
+            className="
+              text-[21px]
+              font-extrabold
+              tracking-[-0.035em]
+              text-[var(--nexo-green)]
+            "
+          >
+            NexoQuiz
           </div>
         </Link>
-
-        {/* NOVO PROJETO */}
 
         <Link
           href="/projetos/novo"
           className="
             mt-7
             flex
+            min-h-12
             w-full
             items-center
             justify-center
             gap-2
-            rounded-xl
-            bg-violet-600
+            rounded-[14px]
+            bg-[var(--nexo-green)]
             px-4
             py-3
             text-sm
-            font-bold
+            font-extrabold
             text-white
             transition
-            hover:bg-violet-500
+            duration-150
+            hover:bg-[var(--nexo-green-hover)]
+            focus-visible:outline-none
+            focus-visible:ring-2
+            focus-visible:ring-[var(--nexo-green)]
+            focus-visible:ring-offset-2
           "
         >
-          <Plus size={18} />
+          <Plus
+            size={18}
+            strokeWidth={2.5}
+          />
 
-          Novo Projeto
+          Criar vídeo
         </Link>
       </div>
 
-      {/* MENU */}
+      {/* NAVIGATION */}
 
-      <nav className="flex-1 overflow-y-auto px-3 pb-6">
-        <div className="space-y-1">
-          {navigation.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="
-                  flex
-                  items-center
-                  gap-3
-                  rounded-xl
-                  px-4
-                  py-3
-                  text-sm
-                  font-medium
-                  text-zinc-400
-                  transition
-                  hover:bg-white/5
-                  hover:text-white
-                "
-              >
-                <Icon size={18} />
-
-                {item.label}
-              </Link>
-            );
-          })}
+      <nav
+        aria-label="Navegação principal"
+        className="
+          nexo-scrollbar
+          flex-1
+          overflow-y-auto
+          px-3
+          pb-5
+        "
+      >
+        <div
+          className="
+            space-y-1
+          "
+        >
+          {primaryNavigation.map(
+            (
+              item
+            ) => (
+              <SidebarLink
+                key={
+                  item.href
+                }
+                item={
+                  item
+                }
+              />
+            )
+          )}
         </div>
 
-        {/* BIBLIOTECA */}
-
-        <div className="mt-7">
-          <div
+        <div
+          className="
+            mt-7
+          "
+        >
+          <p
             className="
-              px-4
-              text-xs
-              font-bold
+              px-3
+              text-[11px]
+              font-extrabold
               uppercase
-              tracking-widest
-              text-zinc-600
+              tracking-[0.16em]
+              text-[#8e9589]
             "
           >
             Biblioteca
-          </div>
+          </p>
 
-          <div className="mt-2 space-y-1">
-            <Link
-              href="/biblioteca/imagens"
-              className="
-                flex
-                items-center
-                gap-3
-                rounded-xl
-                px-4
-                py-2.5
-                text-sm
-                text-zinc-400
-                transition
-                hover:bg-white/5
-                hover:text-white
-              "
-            >
-              <Image size={17} />
-
-              Imagens
-            </Link>
-
-            <Link
-              href="/biblioteca/audios"
-              className="
-                flex
-                items-center
-                gap-3
-                rounded-xl
-                px-4
-                py-2.5
-                text-sm
-                text-zinc-400
-                transition
-                hover:bg-white/5
-                hover:text-white
-              "
-            >
-              <AudioLines size={17} />
-
-              Áudios
-            </Link>
-
-            <Link
-              href="/biblioteca/musicas"
-              className="
-                flex
-                items-center
-                gap-3
-                rounded-xl
-                px-4
-                py-2.5
-                text-sm
-                text-zinc-400
-                transition
-                hover:bg-white/5
-                hover:text-white
-              "
-            >
-              <Music size={17} />
-
-              Músicas
-            </Link>
-
-            <Link
-              href="/biblioteca"
-              className="
-                flex
-                items-center
-                gap-3
-                rounded-xl
-                px-4
-                py-2.5
-                text-sm
-                text-zinc-400
-                transition
-                hover:bg-white/5
-                hover:text-white
-              "
-            >
-              <Library size={17} />
-
-              Biblioteca
-            </Link>
-          </div>
-        </div>
-
-        {/* OUTROS */}
-
-        <div className="mt-7 space-y-1">
-          <Link
-            href="/renderizacoes"
+          <div
             className="
-              flex
-              items-center
-              gap-3
-              rounded-xl
-              px-4
-              py-3
-              text-sm
-              text-zinc-400
-              transition
-              hover:bg-white/5
-              hover:text-white
+              mt-2
+              space-y-1
             "
           >
-            <Video size={18} />
-
-            Renderizações
-          </Link>
-
-          <Link
-            href="/configuracoes"
-            className="
-              flex
-              items-center
-              gap-3
-              rounded-xl
-              px-4
-              py-3
-              text-sm
-              text-zinc-400
-              transition
-              hover:bg-white/5
-              hover:text-white
-            "
-          >
-            <Settings size={18} />
-
-            Configurações
-          </Link>
+            {libraryNavigation.map(
+              (
+                item
+              ) => (
+                <SidebarLink
+                  key={
+                    item.href
+                  }
+                  item={
+                    item
+                  }
+                />
+              )
+            )}
+          </div>
         </div>
       </nav>
+
+      {/* ACCOUNT */}
+
+      <div
+        className="
+          border-t
+          border-[var(--nexo-border)]
+          px-3
+          py-4
+        "
+      >
+        <div
+          className="
+            space-y-1
+          "
+        >
+          {accountNavigation.map(
+            (
+              item
+            ) => (
+              <SidebarLink
+                key={
+                  item.href
+                }
+                item={
+                  item
+                }
+              />
+            )
+          )}
+        </div>
+
+        <div
+          className="
+            mx-2
+            mt-4
+            rounded-[16px]
+            border
+            border-[#dfd6bb]
+            bg-[#f4ecd5]
+            p-3.5
+          "
+        >
+          <p
+            className="
+              text-xs
+              font-bold
+              text-[var(--nexo-green)]
+            "
+          >
+            NexoQuiz
+          </p>
+
+          <p
+            className="
+              mt-1
+              text-[11px]
+              leading-4
+              text-[#737b70]
+            "
+          >
+            Crie quizzes e transforme perguntas em vídeos prontos para publicar.
+          </p>
+        </div>
+      </div>
     </aside>
   );
 }
