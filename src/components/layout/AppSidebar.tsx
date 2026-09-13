@@ -26,14 +26,16 @@ type NavigationItem = {
 const primaryNavigation: NavigationItem[] = [
   {
     label: "Início",
-    href: "/",
+    href: "/dashboard",
     icon: Gauge,
   },
+
   {
     label: "Projetos",
     href: "/projetos",
     icon: FolderKanban,
   },
+
   {
     label: "Modelos",
     href: "/modelos",
@@ -47,11 +49,13 @@ const libraryNavigation: NavigationItem[] = [
     href: "/biblioteca/imagens",
     icon: Image,
   },
+
   {
     label: "Áudios",
     href: "/biblioteca/audios",
     icon: AudioLines,
   },
+
   {
     label: "Músicas",
     href: "/biblioteca/musicas",
@@ -65,11 +69,13 @@ const accountNavigation: NavigationItem[] = [
     href: "/perfil",
     icon: CircleUserRound,
   },
+
   {
     label: "Plano e uso",
     href: "/plano-e-uso",
     icon: WalletCards,
   },
+
   {
     label: "Configurações",
     href: "/configuracoes",
@@ -96,18 +102,18 @@ function SidebarLink({
         rounded-xl
         px-3
         py-2.5
-        text-[14px]
+        text-sm
         font-semibold
         text-[#5c665c]
         transition-colors
         duration-150
-        hover:bg-[#ede5cf]
+        hover:bg-nexo-sidebar-hover
         hover:text-nexo-green
         focus-visible:outline-none
         focus-visible:ring-2
         focus-visible:ring-nexo-green
         focus-visible:ring-offset-2
-        focus-visible:ring-offset-nexo-surface
+        focus-visible:ring-offset-nexo-sidebar
       "
     >
       <Icon
@@ -141,7 +147,7 @@ export function AppSidebar() {
         flex-col
         border-r
         border-nexo-border
-        bg-nexo-surface
+        bg-nexo-sidebar
         lg:flex
       "
     >
@@ -155,8 +161,8 @@ export function AppSidebar() {
         "
       >
         <Link
-          href="/"
-          aria-label="NexoQuiz — Início"
+          href="/dashboard"
+          aria-label="NexoQuiz — Dashboard"
           className="
             inline-flex
             rounded-xl
@@ -164,7 +170,7 @@ export function AppSidebar() {
             focus-visible:ring-2
             focus-visible:ring-nexo-green
             focus-visible:ring-offset-2
-            focus-visible:ring-offset-nexo-surface
+            focus-visible:ring-offset-nexo-sidebar
           "
         >
           <NexoQuizLogo
@@ -172,6 +178,8 @@ export function AppSidebar() {
             symbolSize={42}
           />
         </Link>
+
+        {/* CREATE VIDEO */}
 
         <Link
           href="/projetos/novo"
@@ -183,21 +191,21 @@ export function AppSidebar() {
             items-center
             justify-center
             gap-2
-            rounded-[14px]
+            rounded-xl
             bg-nexo-green
             px-4
             py-3
             text-sm
             font-extrabold
             text-white
-            transition
+            transition-colors
             duration-150
             hover:bg-nexo-green-hover
             focus-visible:outline-none
             focus-visible:ring-2
             focus-visible:ring-nexo-green
             focus-visible:ring-offset-2
-            focus-visible:ring-offset-nexo-surface
+            focus-visible:ring-offset-nexo-sidebar
           "
         >
           <Plus
@@ -209,7 +217,7 @@ export function AppSidebar() {
         </Link>
       </div>
 
-      {/* NAVIGATION */}
+      {/* MAIN NAVIGATION */}
 
       <nav
         aria-label="Navegação principal"
@@ -232,6 +240,8 @@ export function AppSidebar() {
           )}
         </div>
 
+        {/* LIBRARY */}
+
         <div className="mt-7">
           <p
             className="
@@ -239,7 +249,7 @@ export function AppSidebar() {
               text-[11px]
               font-extrabold
               uppercase
-              tracking-[0.16em]
+              tracking-widest
               text-[#8e9589]
             "
           >
@@ -285,6 +295,8 @@ export function AppSidebar() {
           )}
         </div>
 
+        {/* PRODUCT INFO */}
+
         <div
           className="
             mx-2
@@ -299,7 +311,7 @@ export function AppSidebar() {
           <p
             className="
               text-xs
-              font-bold
+              font-extrabold
               text-nexo-green
             "
           >
