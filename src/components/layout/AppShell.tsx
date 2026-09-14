@@ -7,8 +7,7 @@ import {
 } from "./AppSidebar";
 
 type Props = {
-  children:
-    ReactNode;
+  children: ReactNode;
 };
 
 export function AppShell({
@@ -18,8 +17,8 @@ export function AppShell({
     <div
       className="
         min-h-screen
-        bg-[var(--nexo-bg)]
-        text-[var(--nexo-text)]
+        bg-nexo-bg
+        text-nexo-text
       "
     >
       <AppSidebar />
@@ -27,7 +26,7 @@ export function AppShell({
       <div
         className="
           min-h-screen
-          lg:pl-[252px]
+          lg:pl-63
         "
       >
         {children}

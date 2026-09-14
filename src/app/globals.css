@@ -1,9 +1,17 @@
 @import "tailwindcss";
 
 :root {
+  /* =========================================================
+     NEXOQUIZ — BRAND COLORS
+     ========================================================= */
+
   --nexo-bg: #f5eed7;
+
   --nexo-surface: #fbf8ec;
   --nexo-surface-strong: #fffdf6;
+
+  --nexo-sidebar: #f8f1dd;
+  --nexo-sidebar-hover: #eee5cc;
 
   --nexo-green: #064e1a;
   --nexo-green-hover: #083f18;
@@ -23,22 +31,38 @@
   --nexo-danger: #b42318;
   --nexo-success: #157a35;
 
+  /* =========================================================
+     RADII
+     ========================================================= */
+
   --nexo-radius-sm: 10px;
   --nexo-radius-md: 14px;
   --nexo-radius-lg: 18px;
   --nexo-radius-xl: 24px;
 
+  /* =========================================================
+     GLOBAL
+     ========================================================= */
+
   --background: var(--nexo-bg);
   --foreground: var(--nexo-text);
 }
+
+/* =========================================================
+   TAILWIND THEME
+   ========================================================= */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
   --color-nexo-bg: var(--nexo-bg);
+
   --color-nexo-surface: var(--nexo-surface);
   --color-nexo-surface-strong: var(--nexo-surface-strong);
+
+  --color-nexo-sidebar: var(--nexo-sidebar);
+  --color-nexo-sidebar-hover: var(--nexo-sidebar-hover);
 
   --color-nexo-green: var(--nexo-green);
   --color-nexo-green-hover: var(--nexo-green-hover);
@@ -59,4 +83,105 @@
   --color-nexo-success: var(--nexo-success);
 
   --font-sans: var(--font-nexo-sans);
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--nexo-bg);
+}
+
+body {
+  min-height: 100vh;
+
+  margin: 0;
+
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(245, 201, 40, 0.06),
+      transparent 26rem
+    ),
+    var(--nexo-bg);
+
+  color: var(--nexo-text);
+
+  font-family:
+    var(--font-nexo-sans),
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: var(--nexo-green);
+  color: #ffffff;
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+:focus-visible {
+  outline: 3px solid rgba(6, 78, 26, 0.28);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.nexo-scrollbar {
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(6, 78, 26, 0.28)
+    transparent;
+}
+
+.nexo-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.nexo-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.nexo-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+
+  background:
+    rgba(6, 78, 26, 0.2);
+}
+
+.nexo-scrollbar::-webkit-scrollbar-thumb:hover {
+  background:
+    rgba(6, 78, 26, 0.32);
 }
