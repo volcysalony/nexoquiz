@@ -26,7 +26,7 @@ export function HeroProductPreview() {
       <div
         className="
           flex
-          min-h-14
+          min-h-12
           items-center
           justify-between
           gap-4
@@ -63,6 +63,8 @@ export function HeroProductPreview() {
                 justify-center
                 rounded-md
                 bg-nexo-green
+                text-[9px]
+                font-black
                 text-white
               "
             >
@@ -109,7 +111,13 @@ export function HeroProductPreview() {
           </span>
         </div>
 
-        <div className="flex gap-2">
+        <div
+          className="
+            flex
+            shrink-0
+            gap-2
+          "
+        >
           <span
             className="
               rounded-lg
@@ -146,7 +154,7 @@ export function HeroProductPreview() {
       <div
         className="
           grid
-          min-h-107.5
+          min-h-90
           md:grid-cols-[140px_minmax(0,1fr)_220px]
         "
       >
@@ -230,7 +238,6 @@ export function HeroProductPreview() {
             border-r
             border-[#ebe4d1]
             p-5
-            sm:p-6
           "
         >
           <div
@@ -259,7 +266,9 @@ export function HeroProductPreview() {
             />
           </div>
 
-          <div className="mt-6">
+          {/* QUESTION */}
+
+          <div className="mt-4">
             <p
               className="
                 text-[9px]
@@ -284,11 +293,14 @@ export function HeroProductPreview() {
                 text-[#334438]
               "
             >
-              Em que ano foi proclamada a Independência do Brasil?
+              Em que ano foi proclamada a Independência do
+              Brasil?
             </div>
           </div>
 
-          <div className="mt-5">
+          {/* ANSWERS */}
+
+          <div className="mt-4">
             <p
               className="
                 text-[9px]
@@ -351,9 +363,7 @@ export function HeroProductPreview() {
                         text-nexo-green
                       "
                     >
-                      {
-                        option.letter
-                      }
+                      {option.letter}
                     </span>
 
                     <span
@@ -364,9 +374,7 @@ export function HeroProductPreview() {
                         text-[#39483d]
                       "
                     >
-                      {
-                        option.text
-                      }
+                      {option.text}
                     </span>
 
                     {option.selected && (
@@ -382,7 +390,9 @@ export function HeroProductPreview() {
             </div>
           </div>
 
-          <div className="mt-5">
+          {/* CORRECT ANSWER */}
+
+          <div className="mt-4">
             <p
               className="
                 text-[9px]
@@ -393,7 +403,13 @@ export function HeroProductPreview() {
               Resposta correta
             </p>
 
-            <div className="mt-2 flex gap-2">
+            <div
+              className="
+                mt-2
+                flex
+                gap-2
+              "
+            >
               {[
                 "A",
                 "B",
@@ -403,9 +419,7 @@ export function HeroProductPreview() {
                   item
                 ) => (
                   <span
-                    key={
-                      item
-                    }
+                    key={item}
                     className={`
                       flex
                       h-8
@@ -423,16 +437,16 @@ export function HeroProductPreview() {
                       }
                     `}
                   >
-                    {
-                      item
-                    }
+                    {item}
                   </span>
                 )
               )}
             </div>
           </div>
 
-          <div className="mt-5">
+          {/* IMAGE */}
+
+          <div className="mt-4">
             <p
               className="
                 text-[9px]
@@ -441,6 +455,7 @@ export function HeroProductPreview() {
               "
             >
               Imagem
+
               <span
                 className="
                   ml-1
@@ -456,7 +471,7 @@ export function HeroProductPreview() {
               className="
                 mt-2
                 flex
-                h-20
+                h-16
                 max-w-44
                 items-center
                 justify-center
@@ -514,20 +529,21 @@ export function HeroProductPreview() {
 
             <p
               className="
-                mt-5
+                mt-4
                 text-center
                 text-[12px]
                 font-black
-                leading-[1.2]
+                leading-tight
                 text-white
               "
             >
-              EM QUE ANO FOI PROCLAMADA A INDEPENDÊNCIA DO BRASIL?
+              EM QUE ANO FOI PROCLAMADA A INDEPENDÊNCIA DO
+              BRASIL?
             </p>
 
             <div
               className="
-                mt-5
+                mt-4
                 flex
                 h-16
                 items-center
@@ -543,10 +559,10 @@ export function HeroProductPreview() {
             <div
               className="
                 mx-auto
-                mt-4
+                mt-3
                 flex
-                h-12
-                w-12
+                h-11
+                w-11
                 items-center
                 justify-center
                 rounded-full
@@ -560,7 +576,12 @@ export function HeroProductPreview() {
               5
             </div>
 
-            <div className="mt-4 space-y-2">
+            <div
+              className="
+                mt-3
+                space-y-2
+              "
+            >
               <MiniAnswer
                 letter="A"
                 text="1500"
@@ -586,7 +607,7 @@ export function HeroProductPreview() {
       <div
         className="
           hidden
-          min-h-14
+          min-h-12
           items-center
           gap-2
           border-t
@@ -610,9 +631,7 @@ export function HeroProductPreview() {
             item
           ) => (
             <span
-              key={
-                item
-              }
+              key={item}
               className={`
                 flex
                 min-h-8
@@ -665,7 +684,7 @@ function MiniAnswer({
         ${
           selected
             ? "bg-[#0d7a31]"
-            : "bg-white/8"
+            : "bg-white/10"
         }
       `}
     >

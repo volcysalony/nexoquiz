@@ -42,8 +42,8 @@ export default function HomePage() {
           className="
             overflow-hidden
             bg-[#fffdf8]
-            py-16
-            lg:py-24
+            py-8
+            lg:py-10
           "
         >
           <div
@@ -52,12 +52,14 @@ export default function HomePage() {
               grid
               max-w-7xl
               items-center
-              gap-14
+              gap-10
               px-5
               md:px-8
               lg:grid-cols-[0.8fr_1.2fr]
             "
           >
+            {/* HERO CONTENT */}
+
             <div>
               <div
                 className="
@@ -75,6 +77,7 @@ export default function HomePage() {
               >
                 <Sparkles
                   size={14}
+                  strokeWidth={2}
                 />
 
                 Simples, rápido e profissional
@@ -82,22 +85,21 @@ export default function HomePage() {
 
               <h1
                 className="
-                  mt-8
+                  mt-6
                   max-w-xl
                   text-5xl
                   font-extrabold
-                  leading-[0.98]
-                  tracking-[-0.055em]
+                  leading-none
+                  tracking-tighter
                   text-nexo-green
                   sm:text-6xl
-                  lg:text-7xl
                 "
               >
                 Crie vídeos de quiz em{" "}
                 <span
                   className="
+                    decoration-8
                     decoration-nexo-yellow
-                    decoration-[7px]
                     underline
                     underline-offset-4
                   "
@@ -108,19 +110,23 @@ export default function HomePage() {
 
               <p
                 className="
-                  mt-7
+                  mt-5
                   max-w-xl
                   text-lg
                   leading-8
                   text-nexo-text-secondary
                 "
               >
-                Transforme perguntas e respostas em vídeos profissionais para YouTube, Shorts, TikTok e Reels — sem precisar editar manualmente.
+                Transforme perguntas e respostas em vídeos
+                profissionais para YouTube, Shorts, TikTok e Reels
+                — sem precisar editar manualmente.
               </p>
+
+              {/* ACTIONS */}
 
               <div
                 className="
-                  mt-8
+                  mt-6
                   flex
                   flex-wrap
                   gap-3
@@ -143,12 +149,18 @@ export default function HomePage() {
                     transition
                     hover:-translate-y-0.5
                     hover:bg-nexo-green-hover
+                    focus-visible:outline-none
+                    focus-visible:ring-2
+                    focus-visible:ring-nexo-green
+                    focus-visible:ring-offset-2
+                    focus-visible:ring-offset-[#fffdf8]
                   "
                 >
                   Testar grátis
 
                   <ArrowRight
                     size={17}
+                    strokeWidth={2.2}
                   />
                 </Link>
 
@@ -170,19 +182,27 @@ export default function HomePage() {
                     text-nexo-green
                     transition-colors
                     hover:bg-[#f7f2e4]
+                    focus-visible:outline-none
+                    focus-visible:ring-2
+                    focus-visible:ring-nexo-green
+                    focus-visible:ring-offset-2
+                    focus-visible:ring-offset-[#fffdf8]
                   "
                 >
                   <Play
                     size={16}
+                    strokeWidth={2}
                   />
 
                   Ver como funciona
                 </a>
               </div>
 
+              {/* TRUST ITEMS */}
+
               <div
                 className="
-                  mt-10
+                  mt-7
                   flex
                   flex-wrap
                   gap-x-6
@@ -238,6 +258,8 @@ export default function HomePage() {
                 </span>
               </div>
             </div>
+
+            {/* PRODUCT PREVIEW */}
 
             <HeroProductPreview />
           </div>

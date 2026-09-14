@@ -21,7 +21,7 @@ export function MarketingHeader() {
         className="
           mx-auto
           flex
-          min-h-20
+          min-h-16
           max-w-7xl
           items-center
           justify-between
@@ -97,7 +97,7 @@ export function MarketingHeader() {
           </a>
 
           <a
-            href="#precos"
+            href="#planos"
             className="
               text-sm
               font-bold
@@ -106,7 +106,7 @@ export function MarketingHeader() {
               hover:text-nexo-green
             "
           >
-            Preços
+            Planos
           </a>
         </nav>
 
@@ -156,7 +156,7 @@ export function MarketingHeader() {
               sm:px-5
             "
           >
-            Criar grátis
+            Criar conta
           </Link>
         </div>
       </div>
